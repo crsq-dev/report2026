@@ -9,7 +9,7 @@ The scripts were run on a PC with NVIDIA GeForce RTX4090 and CUDA version 12.4 i
 The OS was Ubuntu 22.04 LTS.
 
 The python code required by the scripts span across multiple repositories.
-Clone the following repositories under a single directory.
+Extract the following repositories with release name "report2026" under a single directory.
 
 - crsq-heap
 - crsq-arithmetic
