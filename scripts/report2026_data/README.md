@@ -11,7 +11,7 @@ a PC with a GPU with Ubuntu installed natively. Setup procedures are described
 in [../../README.md](../../README.md)
 
 All data and image files shown in this page is archived under a subdirectory
-named report2026_data.  Howeber, when the scripts are run the data will be
+named report2026_data.  However, when the scripts are run the data will be
 generated under a subdirectory named onedrive.lnk.
 
 ## Section 2.1.3
