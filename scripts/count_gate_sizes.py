@@ -1,8 +1,10 @@
-import logging
+import logging, os
+from pathlib import Path
 from typing import Callable, Tuple
 import numpy
 
 def setup_logging(filename: str):
+    os.makedirs("onedrive.lnk/count_gates", exist_ok=True)
     logging.basicConfig(
         format="%(asctime)s %(levelname)-8s [%(name)s] %(message)s",
         filename=f"onedrive.lnk/count_gates/{filename}.log",
@@ -71,6 +73,12 @@ def make_ham_spec(dim, wfr_spec):
 
 
 def make_wfr_spec(dim, n, n_frac_bits=0):
+    M=1 << n
+    L=32
+    dq = L / M
+    iq = numpy.linspace(0, M - 1, M)
+    itox = iq*dq
+    jtoy = iq*dq
     wfr_spec = wave_function.WaveFunctionRegisterSpec(
         dimension=dim,
         num_coordinate_bits=n,
@@ -78,7 +86,9 @@ def make_wfr_spec(dim, n, n_frac_bits=0):
         num_electrons=1,
         num_moving_nuclei=0,
         num_stationary_nuclei=1,
-        num_frac_bits=n_frac_bits
+        num_frac_bits=n_frac_bits,
+        i_to_x=itox,
+        j_to_y=jtoy
     )
     return wfr_spec
 
@@ -223,7 +233,7 @@ def build_circuit_rfq(
     )
     delta_t = 1e-3
     disc_spec = discretization.DiscretizationSpec(delta_t)
-    repb = rfqhamiltonian.RfqElectronPotentialBlock(rfq_spec, ham_spec, disc_spec)
+    repb = rfqhamiltonian.RfqElectronPotentialBlock(rfq_spec, ham_spec, disc_spec, 1.0)
     return (repb.circuit, label)
 
 
@@ -245,6 +255,11 @@ def count_gates_and_save_as_csv(
     filename = (
         f"{outdir}/hamiltonian-gatecount-{label}-d{dmin}-{dmax}-n{n1min}-{n1max}.csv"
     )
+    if Path(filename).is_file():
+        print("CSV file exists. skipping : ", filename)
+        return
+    else:
+        print("Starting for ", filename)
     setup_logging(f"hamiltonian-gatecount-{label}-d{dmin}-{dmax}-n{n1min}-{n1max}")
     oplist = []
     for d in range(dmin, dmax + 1):
@@ -330,8 +345,8 @@ nmin = 8
 nmax = 8
 
 calc_embed = True
-calc_arith = False
-calc_ucrz = False
+calc_arith = True
+calc_ucrz = True
 
 calc_vsqrom = False 
 calc_sawtooth = False
@@ -363,12 +378,12 @@ if calc_arith:
     )
 
 if calc_3d_large:
-    count_gates_and_save_as_csv(3, 3, 8, 10, build_circuit_arithmetic, "arith-elec-potential")
-    # count_gates_and_save_as_csv(3, 3, 8, 9, build_circuit_ucrz, "ucrz")
+    count_gates_and_save_as_csv(3, 3, 9, 10, build_circuit_arithmetic, "arith-elec-potential")
     count_gates_and_save_as_csv(3, 3, 8, 8, build_circuit_embed, "embed")
 
 if calc_ucrz:
     count_gates_and_save_as_csv(1, 3, 5, 7, build_circuit_ucrz, "ucrz")
+    count_gates_and_save_as_csv(3, 3, 8, 9, build_circuit_ucrz, "ucrz")
     count_gates_and_save_as_csv(1, 2, 8, 10, build_circuit_ucrz, "ucrz")
 
 if calc_vsqrom:
