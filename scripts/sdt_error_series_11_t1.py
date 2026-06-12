@@ -11,8 +11,10 @@ basedir="onedrive.lnk/parameters/evaluator"
 qn = 1
 qm = 1
 En = -2 / 9
-nb = [6, 7, 8, 9]
-L = [25, 30, 34, 39]
+nb = [6, 9]
+L = [25, 39]
+# nb = [6, 7, 8, 9]
+# L = [25, 30, 34, 39]
 t = 1.0
 
 for nb, L in zip(nb, L):

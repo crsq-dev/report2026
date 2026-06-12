@@ -17,8 +17,10 @@ lo=2
 hi=6
 oct=4
 
-nb = [6,7,8,9]
-L = [5,5,6,7]
+nb = [6,9]
+L = [5,7]
+# nb = [6,7,8,9]
+# L = [5,5,6,7]
 
 for nb, L in zip(nb,L):
     eva = trotter_err.Evaluator(basedir, nb=nb, qn=qn, qm=qm, En=En, L=L, t=t)
