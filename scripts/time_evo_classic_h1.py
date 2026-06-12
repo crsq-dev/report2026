@@ -1,5 +1,5 @@
 import os, argparse, logging
-from crsq_xp.classic import cu_suzuki_trotter, params
+from crsq_xp.classic import cu_suzuki_trotter1, params
 from crsq.models import hydrogen1d
 
 logger = logging.getLogger("crsq_xp.scripts")
@@ -20,7 +20,7 @@ def run_simulation(par: params.Params, basedir: str):
         vfunc = hydrogen1d.VHAtomDiscrete(Q0, par.dq, par.n1, 1)
     else:
         vfunc = hydrogen1d.VHAtom(Q0=Q0, dq=par.dq, Z=1)
-    st = cu_suzuki_trotter.SuzukiTrotter1(par, basedir, psifunc=psifunc, vfunc=vfunc)
+    st = cu_suzuki_trotter1.SuzukiTrotter1(par, basedir, psifunc=psifunc, vfunc=vfunc)
     st.run_simulation()
     st.generate_animation_frames()
 

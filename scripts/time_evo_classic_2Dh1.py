@@ -1,5 +1,5 @@
 import os, argparse, logging
-from crsq_xp.classic import cu_suzuki_trotter, params
+from crsq_xp.classic import cu_suzuki_trotter2, params
 from crsq.models import hydrogen2d
 
 logger = logging.getLogger("crsq-explore.scripts")
@@ -21,7 +21,7 @@ def run_simulation(par: params.Params, basedir: str):
         vfunc2 = hydrogen2d.VHAtom2(Qx0=Qx0, Qy0=Qy0, dq=par.dq, r0=0, Z=1, eps=par.eps, frac_bits=par.frac_bits)
     else:
         vfunc2 = hydrogen2d.VHAtom2(Qx0=Qx0, Qy0=Qy0, dq=par.dq, r0=psifunc2.r0_for_pole(par.pole_mitigation, par.eps), Z=1, frac_bits=par.frac_bits)
-    st = cu_suzuki_trotter.SuzukiTrotter2(
+    st = cu_suzuki_trotter2.SuzukiTrotter2(
         par, basedir, psifunc2=psifunc2, vfunc2=vfunc2
     )
     st.run_simulation()

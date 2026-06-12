@@ -1,6 +1,6 @@
 import os, argparse, logging
 import numpy
-from crsq_xp.classic import cu_suzuki_trotter, params
+from crsq_xp.classic import cu_suzuki_trotter2, params
 from crsq.models import hydrogen2d
 from crsq.error import sdbound
 
@@ -22,7 +22,7 @@ def run_simulation(par: params.Params, basedir: str, eigen_value: float):
     rd.set_h(eigen_value)
     rd.set_t(par.total_time)
     rd.set_N(int(par.total_time / par.dt))
-    st = cu_suzuki_trotter.SuzukiTrotter2(
+    st = cu_suzuki_trotter2.SuzukiTrotter2(
         par, basedir, psifunc2=psifunc2, vfunc2=vfunc2, run_data=rd
     )
     st.run_simulation()
