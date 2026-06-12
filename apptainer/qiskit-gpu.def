@@ -1,0 +1,9 @@
+BootStrap: localimage
+From: ubuntu_22.04.sif
+
+%post
+	apt-get update && apt-get install -y python3.10-dev python3-pip python3.10-venv libopenblas-dev cmake openmpi-bin openmpi-common libopenmpi-dev ffmpeg wget
+	wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.1-1_all.deb
+	dpkg -i cuda-keyring_1.1-1_all.deb
+	apt-get update
+	apt-get install -y cuda-toolkit-12-4
