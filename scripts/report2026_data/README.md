@@ -95,8 +95,14 @@ Data
 
 Scripts
 
+Generate data file
 ```bash
 python count_gate_sizes.py
+```
+
+Generate the image
+```bash
+python plot_gate_sizes.py
 ```
 
 ## Section 3.2.1 - 3.2.2
@@ -255,6 +261,10 @@ To generate the time evolution data files
 ./run_evo_analytical_2Dh1_0_0.sh
 ./run_evo_analytical_2Dh1_1_0.sh
 ./run_evo_analytical_2Dh1_1_1.sh
+```
+
+The following 3 were required for section 2.1.3. If you skipped that step, run these now.
+```bash
 ./run_evo_classic_2Dh1_0_0.sh
 ./run_evo_classic_2Dh1_1_0.sh
 ./run_evo_classic_2Dh1_1_1.sh
@@ -318,9 +328,9 @@ Data
 Scripts to generate the data and the images
 
 ```bash
-python sdt_error_series_00_t30.py
-python sdt_error_series_10_t30.py
-python sdt_error_series_11_t30.py
+python sdt_error_series_00_t1.py
+python sdt_error_series_10_t1.py
+python sdt_error_series_11_t1.py
 ```
 
 ## Appendix B.
@@ -394,7 +404,7 @@ Data
 Scripts to generate the data and the images
 
 ```bash
-python sdt_error_series_00_t1.py
-python sdt_error_series_10_t1.py
-python sdt_error_series_11_t1.py
+python sdt_error_series_00_t30.py
+python sdt_error_series_10_t30.py
+python sdt_error_series_11_t30.py
 ```
