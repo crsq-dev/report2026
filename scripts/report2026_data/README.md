@@ -394,12 +394,12 @@ Images
 
 Data
 
-- [Data for n=0, m=0, nb=6](parameters/evaluator/graphs/t1.0/trotter_err_n0_m0_6b_t1.0.csv)
-- [Data for n=0, m=0, nb=9](parameters/evaluator/graphs/t1.0/trotter_err_n0_m0_9b_t1.0.csv)
-- [Data for n=1, m=0, nb=6](parameters/evaluator/graphs/t1.0/trotter_err_n1_m0_6b_t1.0.csv)
-- [Data for n=1, m=0, nb=9](parameters/evaluator/graphs/t1.0/trotter_err_n1_m0_9b_t1.0.csv)
-- [Data for n=1, m=1, nb=6](parameters/evaluator/graphs/t1.0/trotter_err_n1_m1_6b_t1.0.csv)
-- [Data for n=1, m=1, nb=9](parameters/evaluator/graphs/t1.0/trotter_err_n1_m1_9b_t1.0.csv)
+- [Data for n=0, m=0, nb=6](parameters/evaluator/graphs/t30/trotter_err_n0_m0_6b_t30.csv)
+- [Data for n=0, m=0, nb=9](parameters/evaluator/graphs/t30/trotter_err_n0_m0_9b_t30.csv)
+- [Data for n=1, m=0, nb=6](parameters/evaluator/graphs/t30/trotter_err_n1_m0_6b_t30.csv)
+- [Data for n=1, m=0, nb=9](parameters/evaluator/graphs/t30/trotter_err_n1_m0_9b_t30.csv)
+- [Data for n=1, m=1, nb=6](parameters/evaluator/graphs/t30/trotter_err_n1_m1_6b_t30.csv)
+- [Data for n=1, m=1, nb=9](parameters/evaluator/graphs/t30/trotter_err_n1_m1_9b_t30.csv)
 
 Scripts to generate the data and the images
 
