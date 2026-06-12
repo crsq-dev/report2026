@@ -2,7 +2,7 @@
 # optimal L, deltat
 
 # PSI(1,0,0)
-TO=1
+TO=2
 TT=4.0
 for PO in r0lim ; do
     # for EPS in 0.3333333333; do
